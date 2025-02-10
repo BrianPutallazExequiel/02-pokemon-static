@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = (() => {
+  return [
+    { params: { name: 'bulbasaur' } },
+    { params: { name: 'ivysaur' } },
+    { params: { name: 'venusaur' } },
+    { params: { name: 'charmander' } },
+    { params: { name: 'charmeleon' } },
+    { params: { name: 'charizard' } },
+    { params: { name: 'squirtle' } },
+    { params: { name: 'wartortle' } },
+    { params: { name: 'blastoise' } },
+    { params: { name: 'caterpie' } },
+    { params: { name: 'metapod' } },
+    { params: { name: 'butterfree' } },
+    { params: { name: 'weedle' } },
+    { params: { name: 'kakuna' } },
+    { params: { name: 'beedrill' } },
+    { params: { name: 'pidgey' } },
+    { params: { name: 'pidgeotto' } },
+    { params: { name: 'pidgeot' } },
+    { params: { name: 'rattata' } },
+    { params: { name: 'raticate' } }
+  ] ;
+}) satisfies GetStaticPaths;
+
+const { name } = Astro.params;
+---
+
+
+<Layout title="Pokemon Home">
+    <h1 class="text-3xl">{ name }</h1>
+</Layout>
