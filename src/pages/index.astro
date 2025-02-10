@@ -1,6 +1,6 @@
 ---
 // Código Server Side Only - Momento de construcción BUILD TIME 
-import Welcome from '../components/Welcome.astro';
+import PokemonsCard from '../components/Pokemons/PokemonsCard.astro';
 import Layout from '../layouts/Layout.astro';
 import type { PokemonListResponse } from '../interfaces/pokemon-list.response';
 const resp = await fetch('https://pokeapi.co/api/v2/pokemon');
@@ -13,11 +13,7 @@ console.log(data);
 <Layout title="Pokemon Home">
 	<h1 class="text-3xl">Listado de Pokemons</h1>
 	<hr>
-	<ul>
-		{
-			data.results.map((pokemon) => (
-				<li>{pokemon.name}</li>
-			))
-		}
-	</ul>
+	<section aria-label="Listado de Pokemons" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mt-4">
+		{data.results.map((pokemon) => <PokemonsCard name={pokemon.name} pokemon={pokemon.url} />)}
+	</section>
 </Layout>
